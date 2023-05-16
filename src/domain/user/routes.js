@@ -13,7 +13,7 @@ router.post('/signup', async (req, res) => {
         if (!(name && email && password)) {
             throw Error('Empty input fields!');
         }
-        if (!/^[a-zA-Z]*$/.test(name)) {
+        if (!/^[a-zA-ZçÇ\s]*$/.test(name)) {
             throw Error('Invalid name entered!');
         }
         if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {

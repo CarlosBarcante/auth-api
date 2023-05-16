@@ -19,7 +19,7 @@ const createUser = async (data) => {
         })
 
         const createdUser = await newUser.save();
-        return createUser;
+        return createdUser;
     } catch (error) {
         throw error;
     }
