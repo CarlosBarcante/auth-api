@@ -41,7 +41,7 @@ const authUser = async (data) => {
             throw Error('Invalid credentials entered!');
         }
 
-        const tokenData = { userId: fetchedUser._id, email };
+        const tokenData = { userId: fetchedUser._id, email, admin: fetchedUser.admin };
         const token = await createToken(tokenData);
 
         fetchedUser.token = token;
