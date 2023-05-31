@@ -10,7 +10,7 @@
 - Login
 - Autenticação com JWT
 - Verificação de email (OTP)
-- Reset de senha
+- Redefinição de senha
 
 ## Tecnologias utilizadas
 
