@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { createUser, authUser } = require('./controller');
 const auth = require('../../middleware/auth');
+const { sendEmailVerification } = require('../email_verification/controller');
 
 router.post('/signup', async (req, res) => {
     try {
@@ -10,7 +11,6 @@ router.post('/signup', async (req, res) => {
         email = email.trim();
         password = password.trim();
 
-        //validation
         if (!(name && email && password)) {
             throw Error('Empty input fields!');
         }
@@ -25,6 +25,7 @@ router.post('/signup', async (req, res) => {
         }
 
         const newUser = await createUser({ name, email, password });
+        await sendEmailVerification(email);
         res.status(200).json(newUser);
     } catch (error) {
         res.status(400).send(error.message);

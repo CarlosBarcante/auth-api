@@ -7,6 +7,7 @@ const UserSchema = new Schema({
     password: String,
     createdAt: { type: Date, default: Date.now },
     admin: { type: Boolean, default: false },
+    verified: { type: Boolean, default: false },
     token: String,
 })
 

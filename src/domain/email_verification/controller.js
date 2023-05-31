@@ -29,6 +29,8 @@ const verifyUserEmail = async ({ email, otp }) => {
             throw Error('Invalid code passed. Check your inbox.');
         }
 
+        await User.updateOne({ email }, { verified: true });
+
         await deleteOTP(email);
         return;
     } catch (error) {
