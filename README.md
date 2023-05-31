@@ -19,6 +19,8 @@
 - Express
 - MongoDB
 - JsonWebToken (JWT)
+- nodemailer
+- bcrypt
 
 # Autor
 
